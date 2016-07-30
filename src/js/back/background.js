@@ -1,23 +1,15 @@
 'use strict';
 
+import Location from './location';
+
 function main() {
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    var xhttp = new XMLHttpRequest();
-    var method = 'GET';
+    Location(-37.7868046, 175.3195688)(function (location) {
+      sendResponse(location.data);
+    });
 
-    xhttp.onload = () => {
-      sendResponse(xhttp.responseText);
-    };
-
-    xhttp.onerror = () => {
-      sendResponse('error');
-    };
-
-    xhttp.open(method, 'http://example.com', true);
-    xhttp.send();
     return true; // prevents the callback from being called too early on return
   });
 }
-
 
 main();
