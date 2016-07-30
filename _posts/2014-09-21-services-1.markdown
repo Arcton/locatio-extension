@@ -1,0 +1,8 @@
+---
+layout: default
+img: dog.png
+category: Services
+title: Looking for a home?
+description: |
+---
+  Locatio is your go to browser extension to help you get the home that you deserve!
