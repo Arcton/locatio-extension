@@ -33,6 +33,12 @@ export default class Container {
 
     this.el.appendChild(fragment);
 
+    this.cards.forEach((card) => {
+      if (card.afterAttached != null) {
+        card.afterAttached();
+      }
+    });
+
     return this;
   }
 

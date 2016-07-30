@@ -96,7 +96,7 @@ gulp.task('css', () => {
     postcssSimpleVars,
     postcssCalc,
     postcssColorFunction,
-    postcsssClassPrefix('lio-'),
+    postcsssClassPrefix('lio-', { ignore: [/c3-.*/]}),
     autoprefixer({ browsers: ['last 5 Chrome versions'] })
   ];
 

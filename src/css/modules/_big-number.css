@@ -3,6 +3,7 @@
 .big-number {
   font-size: 4em;
   font-weight: 600;
+  line-height: 1;
 
   &--positive {
     color: $stat-positive;

@@ -24,7 +24,7 @@ export default class CrimeCard extends Card {
         <span class="lio-small">(assault, sexual assault, and robberies)</span>
       </div>
     </div>
-    <div class="lio-crime__footer-text"><b>${this.data.events}</b> assults and robberies occured in ${this.data.name}'s public places in 2015</div>
+    <div class="lio-card__footer-text"><b>${this.data.events}</b> assults and robberies occured in ${this.data.name}'s public places in 2015</div>
     `;
     this.contentEl.classList.add('lio-crime');
     this.contentEl.innerHTML = htmlString;

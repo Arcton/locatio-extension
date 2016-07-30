@@ -1,0 +1,5 @@
+@import '../variables';
+
+.big-number-text {
+  margin-top: calc($spacing/2);
+}
