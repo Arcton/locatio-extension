@@ -9,6 +9,7 @@ class Location {
   constructor(lat, lng, max_results, callback) {
     this.lat = lat;
     this.lng = lng;
+    var ref = this;
 
     $.ajax({
       url: 'https://koordinates.com/services/query/v1/vector.json',
@@ -21,20 +22,24 @@ class Location {
         max_results: max_results
       },
       dataType: 'json'
-    }).done(function(json) {
-      this.data = json.vectorQuery.layers[KOORDINATES_MESHBLOCK_LAYER_2013].features;
-      this.areaUnits = [];
-      for (var meshBlock of this.data) {
-        var areaUnit = meshBlock.properties.AU2013;
-        if (this.areaUnits.indexOf(areaUnit) === -1) {
-          this.areaUnits.push(areaUnit);
+    })
+      .done(function(json) {
+        ref.data = json.vectorQuery.layers[KOORDINATES_MESHBLOCK_LAYER_2013].features;
+        ref.areaUnits = [];
+        for (var meshBlock of ref.data) {
+          var areaUnit = meshBlock.properties.AU2013;
+          if (ref.areaUnits.indexOf(areaUnit) === -1) {
+            ref.areaUnits.push(areaUnit);
+          }
         }
-      }
-      this.areaUnit = this.areaUnits[0];
-      Object.freeze(this.areaUnits);
-      Object.freeze(this.areaUnit);
-      callback(this);
-    });
+        ref.areaUnit = ref.areaUnits[0];
+        Object.freeze(ref.areaUnits);
+        Object.freeze(ref.areaUnit);
+        callback(ref);
+      })
+      .fail(function() {
+        callback(undefined);
+      });
   }
 }
 

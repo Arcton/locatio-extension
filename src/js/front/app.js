@@ -14,6 +14,7 @@ function main() {
   }, function(response) {
     if (response.err) {
       // TODO: don't fail silently
+      console.log(response);
     } else {
       createUI(data);
     }
