@@ -7,8 +7,7 @@
 
   "permissions": [
     "activeTab",
-    "https://google.co.nz/",
-    "https://example.com/"
+    "*://*.trademe.co.nz/property/*"
   ],
 
   "background": {
@@ -19,7 +18,7 @@
   "content_scripts": [
     {
       "matches": [
-          "<all_urls>"
+          "*://*.trademe.co.nz/property/*-property-to-*/auction-*"
         ],
       "js": ["js/app.js"]
     }
