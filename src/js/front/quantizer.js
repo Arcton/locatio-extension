@@ -4,7 +4,7 @@ export default class Quantizer {
   constructor(low, high, values) {
     this.low = low;
     this.high = high;
-    this.values = values;
+    this.values = values || ['positive', 'low-positive', 'average', 'low-negative', 'negative'];
   }
 
   quantize(value) {

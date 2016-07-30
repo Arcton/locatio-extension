@@ -1,0 +1,17 @@
+@import '../variables';
+
+.people {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &__section {
+    flex-grow: 1;
+    padding-bottom: $spacing;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}

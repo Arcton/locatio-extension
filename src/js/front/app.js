@@ -4,6 +4,7 @@ import * as dataExtractor from './pageDataExtractor';
 // import data from './sample-data.json';
 import CrimeCard from './views/crime-card';
 import EmploymentCard from './views/employment-card';
+import PeopleCard from './views/people-card';
 import Container from './views/container';
 
 function main() {
@@ -28,6 +29,7 @@ function createUI(data) {
   const container = new Container();
   container.addCard(new CrimeCard(data.crime));
   container.addCard(new EmploymentCard(data.employment));
+  container.addCard(new PeopleCard(data.people));
   container.render(containerEl);
 
   listingEl.parentElement.insertBefore(container.el, listingEl);
@@ -41,6 +43,8 @@ function _processData(data) {
   const processedData = {
     crime: data['crime'],
     employment: {
+    },
+    people: {
     }
   };
 
@@ -50,6 +54,18 @@ function _processData(data) {
   processedData.employment.industries = data['census-individual-part-3a']['2013 Census, industry (ANZSIC96 division),(18)(19) for the employed census usually resident population count aged 15 years and over(1)'];
   delete processedData.employment.industries['Total people stated'];
   delete processedData.employment.industries['Total people'];
+
+  // People
+  processedData.people.medianIncome = data['census-individual-part-2']['2013 Census, total personal income (grouped),(21)(22) for the census usually resident population count aged 15 years and over(1)']['Median personal income ($)(23)(27)'];
+  processedData.people.medianAge = data['census-individual-part-1']['2013 Census, age in five-year groups, for the census usually resident population count(1)']['Median Age(3)'];
+  const studyStats = data['census-individual-part-2']['2013 Census, study participation,(18) for the census usually resident population count aged 15 years and over(1)']
+  processedData.people.studying = {
+    fullTime: studyStats['Full-time Study(19)'],
+    partTime: studyStats['Part-time Study(20)'],
+    fullAndPart: studyStats['Full-time and Part-time Study'],
+    notStudying: studyStats['Not Studying'],
+    notStated: studyStats['Not stated']
+  }
   return processedData;
 }
 

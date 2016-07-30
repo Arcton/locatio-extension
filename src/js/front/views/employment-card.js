@@ -55,9 +55,9 @@ export default class EmploymentCard extends Card {
         show: false
       },
       color: {
-        pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+        pattern: ['#ec2c15', '#fdbc1e', '#3a82d2', '#3ad2bf', '#9ede5b'], // the three color levels for the percentage values.
         threshold: {
-          values: [30, 60, 90, 100]
+          values: [80, 85, 90, 95, 100]
         }
       },
       size: {
