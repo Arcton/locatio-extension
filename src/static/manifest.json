@@ -8,7 +8,8 @@
   "permissions": [
     "activeTab",
     "*://*.trademe.co.nz/*",
-    "*://trademe.co.nz/*"
+    "*://trademe.co.nz/*",
+    "*://koordinates.com/services/query/*"
   ],
 
   "background": {

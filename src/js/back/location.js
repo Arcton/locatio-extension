@@ -6,9 +6,9 @@ var KOORDINATES_API_KEY = '50336bf0169e4c748cf919549752cd21';
 var KOORDINATES_MESHBLOCK_LAYER_2013 = '8578';
 
 class Location {
-  constructor(lat, long, max_results, callback) {
+  constructor(lat, lng, max_results, callback) {
     this.lat = lat;
-    this.long = long;
+    this.lng = lng;
 
     $.ajax({
       url: 'https://koordinates.com/services/query/v1/vector.json',
@@ -16,7 +16,7 @@ class Location {
       data: {
         key: KOORDINATES_API_KEY,
         layer: KOORDINATES_MESHBLOCK_LAYER_2013,
-        x: long,
+        x: lng,
         y: lat,
         max_results: max_results
       },
@@ -38,11 +38,11 @@ class Location {
   }
 }
 
-export default function (lat, long, max_results) {
+export default function (lat, lng, max_results) {
   if (!max_results) {
     max_results = 1;
   }
   return function(callback) {
-    new Location(lat, long, max_results, callback);
+    new Location(lat, lng, max_results, callback);
   };
 }

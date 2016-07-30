@@ -4,9 +4,19 @@ import Location from './location';
 
 function main() {
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    Location(-37.7868046, 175.3195688)(function (location) {
-      sendResponse(location.data);
-    });
+    switch(request.type) {
+    case 'requestInfo':
+      Location(
+        request.coords.lat,
+        request.coords.lng)(function (location) {
+          sendResponse(location.data);
+        });
+      break;
+    default:
+      sendResponse({
+        err: true
+      });
+    }
 
     return true; // prevents the callback from being called too early on return
   });
