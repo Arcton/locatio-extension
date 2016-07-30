@@ -5,6 +5,12 @@
 $col-primary: #6e95d1;
 $col-secondary: #d23a68;
 
+$stat-positive: #9ede5b;
+$stat-low-positive: #3ad2bf;
+$stat-average: #3a82d2;
+$stat-low-negative: #fdbc1e;
+$stat-negative: #ec2c15;
+
 $transition-duration: 0.4s;
 
 $grid-gutter: 14px;

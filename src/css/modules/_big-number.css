@@ -1,0 +1,26 @@
+@import '../variables';
+
+.big-number {
+  font-size: 4em;
+  font-weight: 600;
+
+  &--positive {
+    color: $stat-positive;
+  }
+
+  &--low-positive {
+    color: $stat-low-positive;
+  }
+
+  &--average {
+    color: $stat-average;
+  }
+
+  &--low-negative {
+    color: $stat-low-negative;
+  }
+
+  &--negative {
+    color: $stat-negative;
+  }
+}

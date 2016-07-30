@@ -13,7 +13,7 @@
   padding: $grid-gutter 0 0 $grid-gutter;
   flex: $flex;
   padding: $grid-gutter 0 0 $grid-gutter;
-  width: auto;
+  width: $size;
 }
 
 .grid-row {
@@ -25,17 +25,17 @@
 }
 
 .grid-cell-2 {
-   @mixin grid-cell 33% none;
+   @mixin grid-cell 33%, none;
 }
 
 .grid-cell-3 {
-   @mixin grid-cell 50% none;
+   @mixin grid-cell 50%, none;
 }
 
 .grid-cell-4 {
-   @mixin grid-cell 66% none;
+   @mixin grid-cell 66%, none;
 }
 
 .grid-cell-6 {
-   @mixin grid-cell 100% none;
+   @mixin grid-cell 100%, none;
 }

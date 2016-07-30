@@ -1,6 +1,7 @@
 'use strict';
 
 import * as dataExtractor from './pageDataExtractor';
+import data from './sample-data.json';
 import CrimeCard from './views/crime-card';
 import Container from './views/container';
 
@@ -13,7 +14,7 @@ function main() {
     if (response.err) {
       // TODO: don't fail silently
     } else {
-      createUI(response.data);
+      createUI(data);
     }
   });
 }

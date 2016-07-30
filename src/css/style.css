@@ -2,4 +2,7 @@
 @import 'variables';
 @import 'modules/card';
 @import 'modules/container';
+@import 'modules/crime';
+@import 'modules/big-number';
+@import 'modifiers';
 @import 'grid';
