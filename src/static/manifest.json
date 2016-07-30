@@ -7,7 +7,8 @@
 
   "permissions": [
     "activeTab",
-    "*://*.trademe.co.nz/property/*"
+    "*://*.trademe.co.nz/*",
+    "*://trademe.co.nz/*"
   ],
 
   "background": {
@@ -18,7 +19,10 @@
   "content_scripts": [
     {
       "matches": [
-          "*://*.trademe.co.nz/property/*-property-to-*/auction-*"
+          "*://*.trademe.co.nz/property/*-property-*/auction-*",
+          "*://*.trademe.co.nz/Browse/Listing*",
+          "*://trademe.co.nz/property/*-property-*/auction-*",
+          "*://trademe.co.nz/Browse/Listing*"
         ],
       "js": ["js/app.js"]
     }

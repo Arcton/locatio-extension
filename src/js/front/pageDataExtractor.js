@@ -8,7 +8,8 @@ import $ from 'jquery';
  */
 export function getPropertyCoords() {
   const selection = $('#ListingPropertyMapContainer_panMapContainer > script[type="text/javascript"]');
-  $.each(selection, (k, el) => {
+
+  for (let el of selection) {
     const re = /lat: (.*),\n\s*?lng: (.*),/gm;
     const coords = {};
 
@@ -17,6 +18,8 @@ export function getPropertyCoords() {
       coords.lng = $2;
     });
 
-    return coords;
-  });
+    if (coords.lat && coords.lng) {
+      return coords;
+    }
+  }
 }
