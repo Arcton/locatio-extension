@@ -1,0 +1,11 @@
+@define-mixin type-content {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+$col-primary: #6e95d1;
+$col-secondary: #d23a68;
+
+$transition-duration: 0.4s;
+
+$grid-gutter: 14px;
+$spacing: 14px;

@@ -22,6 +22,8 @@ import postcssCalc from 'postcss-calc';
 import postcssPropertyLookup from 'postcss-property-lookup';
 import postcssColorFunction from 'postcss-color-function';
 import postcssMixins from 'postcss-mixins';
+import autoprefixer from 'autoprefixer';
+import postcsssClassPrefix from 'postcss-class-prefix';
 
 const opts = {
   dest: './dist'
@@ -85,17 +87,46 @@ gulp.task('watchify', function() {
   return es.merge.apply(null, tasks);
 });
 
+gulp.task('css', () => {
+  const processors = [
+    postcssPartial,
+    postcssMixins,
+    postcssNested,
+    postcssPropertyLookup,
+    postcssSimpleVars,
+    postcssCalc,
+    postcssColorFunction,
+    postcsssClassPrefix('lio-'),
+    autoprefixer({ browsers: ['last 5 Chrome versions'] })
+  ];
+
+  return gulp.src('src/css/style.css')
+    .pipe(postcss(processors))
+    .pipe(gulp.dest(opts.dest));
+});
+
+
 gulp.task('static', function () {
   return gulp.src('./src/static/**.*')
     .pipe(gulp.dest(opts.dest));
+});
+
+gulp.task('fonts', function () {
+  let base = 'node_modules/source-sans-pro/WOFF2/TTF/SourceSansPro';
+  return gulp.src([
+    base + '-Light.ttf.woff2',
+    base + '-Regular.ttf.woff2',
+    base + '-Semibold.ttf.woff2'])
+    .pipe(gulp.dest(opts.dest + '/fonts/'));
 });
 
 gulp.task('clean', function() {
   del.sync(opts.dest + '/**/*');
 });
 
-gulp.task('watch', ['static', 'watchify'], function () {
+gulp.task('watch', ['build', 'watchify'], function () {
   gulp.watch('./src/static/**.*', ['static']);
+  gulp.watch('src/css/**/*', ['css']);
 });
 
-gulp.task('build', ['static', 'browserify']);
+gulp.task('build', ['static', 'fonts', 'css', 'browserify']);

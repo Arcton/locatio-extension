@@ -17,6 +17,10 @@
     "persistent": false
   },
 
+  "web_accessible_resources": [
+    "fonts/*.*"
+  ],
+
   "content_scripts": [
     {
       "matches": [
@@ -25,7 +29,8 @@
           "*://trademe.co.nz/property/*-property-*/auction-*",
           "*://trademe.co.nz/Browse/Listing*"
         ],
-      "js": ["js/app.js"]
+      "js": ["js/app.js"],
+      "css": ["style.css"]
     }
   ]
 }

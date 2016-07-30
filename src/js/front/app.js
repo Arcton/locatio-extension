@@ -1,12 +1,11 @@
 'use strict';
 
 import * as dataExtractor from './pageDataExtractor';
-import Card from './views/card';
+import CrimeCard from './views/crime-card';
 import Container from './views/container';
 
 function main() {
   let coords = dataExtractor.getPropertyCoords();
-  console.log(coords);
   chrome.runtime.sendMessage({
     type: 'requestInfo',
     coords: coords
@@ -23,9 +22,7 @@ function createUI(data) {
   const listingEl = document.getElementById('ListingMainDetails');
   const containerEl = document.createElement('div');
   const container = new Container();
-  container.addCard(new Card('test1'));
-  container.addCard(new Card('test2'));
-  container.addCard(new Card('test3'));
+  container.addCard(new CrimeCard(data['crime']));
   container.render(containerEl);
 
   listingEl.parentElement.insertBefore(container.el, listingEl);

@@ -7,10 +7,31 @@ export default class Container {
 
   render(container) {
     this.el = container;
+    this.el.className = 'lio-container';
+
+    const fragment = document.createDocumentFragment();
+
+    let rowSize = 0;
+    let row;
 
     this.cards.forEach((card) => {
-      this.el.appendChild(card.render().el);
+      if (rowSize === 0) {
+        row = document.createElement('div');
+        row.className = 'lio-grid-row';
+        fragment.appendChild(row);
+      } else if (rowSize + card.getSize() > 6) {
+        rowSize = 0;
+      }
+
+      rowSize += card.getSize();
+
+      const cell = document.createElement('div');
+      cell.className = `lio-grid-cell-${card.getSize()}`;
+      cell.appendChild(card.render().el);
+      row.appendChild(cell);
     });
+
+    this.el.appendChild(fragment);
 
     return this;
   }

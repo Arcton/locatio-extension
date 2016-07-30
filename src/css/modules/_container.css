@@ -1,0 +1,9 @@
+.container {
+  padding: $spacing;
+  margin: $spacing 0;
+  background: #f7f7f7;
+  border-radius: 4px;
+
+  @mixin type-content;
+  font-size: 15px;
+}

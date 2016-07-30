@@ -1,0 +1,41 @@
+@import 'variables';
+
+@define-mixin grid-row {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: -$grid-gutter 0 $grid-gutter -$grid-gutter;
+}
+
+@define-mixin grid-cell $size: auto, $flex: 1 {
+  box-sizing: border-box;
+  padding: $grid-gutter 0 0 $grid-gutter;
+  flex: $flex;
+  padding: $grid-gutter 0 0 $grid-gutter;
+  width: auto;
+}
+
+.grid-row {
+  @mixin grid-row;
+}
+
+.grid-cell {
+  @mixin grid-cell;
+}
+
+.grid-cell-2 {
+   @mixin grid-cell 33% none;
+}
+
+.grid-cell-3 {
+   @mixin grid-cell 50% none;
+}
+
+.grid-cell-4 {
+   @mixin grid-cell 66% none;
+}
+
+.grid-cell-6 {
+   @mixin grid-cell 100% none;
+}
