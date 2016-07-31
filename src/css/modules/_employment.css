@@ -1,16 +1,6 @@
 @import '../variables';
 
 .employment {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-
-  &__main {
-    flex-grow: 1;
-    padding-bottom: $spacing;
-  }
-
   .c3-gauge-value {
     font-size: 2em !important;
     font-weight: 600;

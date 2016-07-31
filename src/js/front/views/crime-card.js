@@ -16,7 +16,7 @@ export default class CrimeCard extends Card {
     super.render();
 
     const htmlString = `
-    <div class="lio-crime__main">
+    <div class="lio-card__section">
       <div class="lio-big-number lio-big-number--${ratioQuantizer.quantize(this.data.ratio)}">${this.data.ratio}x</div>
       <div class="lio-big-number-text">
         the national average
@@ -24,7 +24,7 @@ export default class CrimeCard extends Card {
         <span class="lio-small">(assault, sexual assault, and robberies)</span>
       </div>
     </div>
-    <div class="lio-card__footer-text"><b>${this.data.events}</b> assault and robberies occured in ${this.data.name}'s public places in 2015</div>
+    <div class="lio-card__section"><b>${this.data.events}</b> assault and robberies occured in ${this.data.name}'s public places in 2015</div>
     `;
     this.contentEl.classList.add('lio-crime');
     this.contentEl.innerHTML = htmlString;

@@ -21,4 +21,21 @@
     flex-grow: 0;
     margin: 0 0 1em 0;
   }
+
+  &__content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  &__section {
+    flex-grow: 0;
+    padding-bottom: $spacing;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
 }

@@ -23,13 +23,13 @@ export default class PeopleCard extends Card {
     const totalStudyingResponses = numberStudying + this.data.studying.notStudying;
 
     const htmlString = `
-    <div class="lio-people__section">
+    <div class="lio-card__section">
       <div class="lio-big-number lio-big-number--${ratioQuantizer.quantize(this.data.medianIncome)}">$${Math.round(this.data.medianIncome/1000)}k</div>
       <div class="lio-big-number-text">
         median income
       </div>
     </div>
-    <div class="lio-people__section">The median age is <b>${this.data.medianAge}</b>. Around <b>${
+    <div class="lio-card__section">The median age is <b>${this.data.medianAge}</b>. Around <b>${
           Math.round((numberStudying / totalStudyingResponses) * 100)
         }%</b> of the population are students.</div>
     `;

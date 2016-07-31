@@ -17,13 +17,13 @@ export default class EmploymentCard extends Card {
     const industries = this._sortIndustries();
 
     const htmlString = `
-    <div class="lio-employment__main">
+    <div class="lio-card__section">
       <div class="lio-gauge"></div>
       <div class="lio-big-number-text">
         % employment rate
       </div>
     </div>
-    <div class="lio-card__footer-text">
+    <div class="lio-card__section">
       <b>${industries[0].key}</b> is the most popular industry
       <span class="lio-small">(followed by <b>${industries[1].key}</b> and <b>${industries[2].key}</b>)</span>
     </div>

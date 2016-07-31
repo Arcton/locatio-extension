@@ -2,8 +2,6 @@
 @import 'variables';
 @import 'modules/card';
 @import 'modules/container';
-@import 'modules/crime';
-@import 'modules/people';
 @import 'modules/employment';
 @import 'modules/big-number';
 @import 'modules/loader';
