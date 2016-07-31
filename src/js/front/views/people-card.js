@@ -29,11 +29,9 @@ export default class PeopleCard extends Card {
         median income
       </div>
     </div>
-    <div class="lio-people__section">
-        The median age is <b>${this.data.medianAge}</b>. Around <b>${
+    <div class="lio-people__section">The median age is <b>${this.data.medianAge}</b>. Around <b>${
           Math.round((numberStudying / totalStudyingResponses) * 100)
-        }%</b> of the population are students.
-    </div>
+        }%</b> of the population are students.</div>
     `;
     this.contentEl.classList.add('lio-people');
     this.contentEl.innerHTML = htmlString;

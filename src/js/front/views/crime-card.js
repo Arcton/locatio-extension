@@ -1,7 +1,7 @@
 import Card from './card';
 import Quantizer from '../quantizer';
 
-const ratioQuantizer = new Quantizer(0, 2);
+const ratioQuantizer = new Quantizer(0, 3);
 
 export default class CrimeCard extends Card {
 
@@ -38,5 +38,14 @@ export default class CrimeCard extends Card {
       events: d['Victimisations_calendar_year_2015'],
       name: d['Area_unit_2013_label']
     };
+
+    if (isNaN(parseFloat(this.data.ratio))) {
+      if (isNaN(parseFloat(this.data.events))) {
+        this.data.ratio = '?';
+        this.data.events = 'An unknown number of';
+      } else {
+        this.data.ratio = 0;
+      }
+    }
   }
 }
