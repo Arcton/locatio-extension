@@ -9,3 +9,4 @@
 @import 'modules/misc';
 @import 'modifiers';
 @import 'grid';
+@import '../../node_modules/c3/c3.css';
