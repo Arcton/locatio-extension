@@ -33,7 +33,7 @@ export default class CrimeCard extends Card {
 
   _processData(d) {
     this.data = {
-      ratio: 0.2,
+      ratio: d[' Rate_ratio_NZ_average_rate '],
       rate: d[' Rate_per_10000_population '],
       events: d['Victimisations_calendar_year_2015'],
       name: d['Area_unit_2013_label']
