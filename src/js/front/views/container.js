@@ -49,10 +49,16 @@ export default class Container {
       $(rows[0]).show();
 
       $(showMore).click(() => {
-        for (let r of rows) {
-          $(r).show(500);
+        rows.forEach((r) => {
+          $(r).show();
           $(showMore).hide(500);
-        }
+        });
+
+        this.cards.forEach((card) => {
+          if (card.afterAttached != null) {
+            card.afterAttached();
+          }
+        });
       });
     }
 

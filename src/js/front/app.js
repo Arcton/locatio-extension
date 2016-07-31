@@ -5,6 +5,7 @@ import * as dataExtractor from './pageDataExtractor';
 import CrimeCard from './views/crime-card';
 import EmploymentCard from './views/employment-card';
 import PeopleCard from './views/people-card';
+import TransportCard from './views/transport-card';
 import Container from './views/container';
 import Loader from './views/loader';
 
@@ -39,6 +40,7 @@ function createUI(data, container, containerEl) {
   container.addCard(new CrimeCard(data.crime));
   container.addCard(new EmploymentCard(data.employment));
   container.addCard(new PeopleCard(data.people));
+  container.addCard(new TransportCard(data.transport));
   container.render(containerEl);
 }
 
@@ -57,6 +59,8 @@ function _processData(data) {
     employment: {
     },
     people: {
+    },
+    transport: {
     }
   };
 
@@ -78,6 +82,18 @@ function _processData(data) {
     notStudying: studyStats['Not Studying'],
     notStated: studyStats['Not stated']
   }
+
+  let tm = data['census-individual-part-3b']['2013 Census, main means of travel to work, for the employed census usually resident population count aged 15 years and over(1)'];
+  // Transport
+  processedData.transport.methods = [
+    ['Car, Truck or Van', tm['Drove a Private Car, Truck or Van'] + tm['Drove a Company Car, Truck or Van']],
+    ['Train', tm['Train']],
+    ['Motor Cycle or Power Cycle', tm['Motor Cycle or Power Cycle']],
+    ['Public Bus', tm['Public Bus']],
+    ['Other', tm['Other']],
+    ['Walk or Jog', tm['Walked or Jogged']],
+    ['Bicycle', tm['Bicycle']]
+  ];
   return processedData;
 }
 
