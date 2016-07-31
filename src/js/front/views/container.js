@@ -1,5 +1,7 @@
 'use strict';
 
+import $ from 'jquery';
+
 export default class Container {
   constructor() {
     this.cards = [];
@@ -13,23 +15,46 @@ export default class Container {
 
     let rowSize = 0;
     let row;
+    let rows = [];
 
     this.cards.forEach((card) => {
       if (rowSize === 0) {
         row = document.createElement('div');
         row.className = 'lio-grid-row';
         fragment.appendChild(row);
-      } else if (rowSize + card.getSize() > 6) {
+        rows.push(row);
+        rowSize += card.getSize();
+      } else if (rowSize + card.getSize() >= 6) {
         rowSize = 0;
+      } else {
+        rowSize += card.getSize();
       }
-
-      rowSize += card.getSize();
 
       const cell = document.createElement('div');
       cell.className = `lio-grid-cell-${card.getSize()}`;
       cell.appendChild(card.render().el);
       row.appendChild(cell);
     });
+
+    if (rows.length > 1) {
+      const showMore = document.createElement('div');
+      showMore.className = 'lio-expander';
+      showMore.innerHTML = 'Show More';
+      fragment.appendChild(showMore);
+
+      for (let r of rows) {
+        $(r).hide();
+      }
+
+      $(rows[0]).show();
+
+      $(showMore).click(() => {
+        for (let r of rows) {
+          $(r).show(500);
+          $(showMore).hide(500);
+        }
+      });
+    }
 
     this.el.appendChild(fragment);
 

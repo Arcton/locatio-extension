@@ -1,0 +1,19 @@
+@import '../variables';
+
+.expander {
+  display: inline-block;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  padding: 8px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+
+  transition-duration: $transition-duration;
+  transition-property: background, border;
+
+  &:hover {
+    border-color: transparent;
+    background: $col-primary;
+    color: white;
+  }
+}

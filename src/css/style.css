@@ -7,6 +7,7 @@
 @import 'modules/employment';
 @import 'modules/big-number';
 @import 'modules/loader';
+@import 'modules/expander';
 @import 'modules/misc';
 @import 'modifiers';
 @import 'grid';
