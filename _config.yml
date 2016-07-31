@@ -26,7 +26,7 @@ permalink: pretty
 # ----------------------- #
 
 social:
-  - title: twitter
-    url: https://twitter.com/hashtag/GovHackNZ?f=tweets&vertical=default
+  - title: download
+    url: https://chrome.google.com/webstore/detail/locatio/egbmcaagcpgnojkdbgigkdkckabmcgpp
   - title: github
     url: https://github.com/arcton/locatio-extension
