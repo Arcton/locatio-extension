@@ -9,8 +9,8 @@ export default class Card {
   render() {
     this.el = document.createElement('div');
     this.el.className = 'lio-card';
-    this.el.innerHTML = `<p class="lio-card__title">${this.title}</p>
-      <div class="lio-card__content"></div>`;
+    this.el.innerHTML = (this.title ? `<p class="lio-card__title">${this.title}</p>` : '')
+    +  '<div class="lio-card__content"></div>';
 
     this.contentEl = this.el.querySelector('.lio-card__content');
 

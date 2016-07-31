@@ -1,0 +1,58 @@
+@import '../variables';
+
+.loader {
+  text-align: center;
+
+  &__spinner {
+  	display: block;
+  	width: 30px;
+  	height: 30px;
+  	margin-left: auto;
+  	margin-right: auto;
+    margin-top: $spacing;
+  	position: relative;
+  }
+
+  &__spinner:before, &__spinner:after {
+  	content: '';
+    	display: block;
+  	box-sizing: border-box;
+  	position: absolute;
+
+  	border-radius: 100%;
+  	border-width: 2px;
+  	border-style: solid;
+  }
+
+  &__spinner:before {
+  	width: 30px;
+  	height: 30px;
+
+  	border-color: $col-primary transparent;
+  	animation: spinner-spin 2s linear infinite;
+  }
+
+  &__spinner:after {
+  	width: 22px;
+  	height: 22px;
+  	top: 4px;
+  	left: 4px;
+
+  	border-color: transparent $col-primary;
+  	animation: spinner-spin 2s linear infinite reverse;
+  }
+}
+
+@keyframes spinner-spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		transform: rotate(180deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

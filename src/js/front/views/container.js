@@ -45,4 +45,9 @@ export default class Container {
   addCard(card) {
     this.cards.push(card);
   }
+
+  clearAll() {
+    this.cards = [];
+    this.el.innerHTML = '';
+  }
 }

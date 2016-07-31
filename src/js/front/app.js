@@ -6,33 +6,45 @@ import CrimeCard from './views/crime-card';
 import EmploymentCard from './views/employment-card';
 import PeopleCard from './views/people-card';
 import Container from './views/container';
+import Loader from './views/loader';
 
 function main() {
   let coords = dataExtractor.getPropertyCoords();
-  chrome.runtime.sendMessage({
-    type: 'requestInfo',
-    coords: coords
-  }, function(response) {
-    if (response.err) {
-      // TODO: don't fail silently
-      console.log(response);
-    } else {
-      createUI(response.data);
-    }
-  });
+
+  if (coords.lat && coords.lng) {
+    const listingEl = document.getElementById('ListingMainDetails');
+    const containerEl = document.createElement('div');
+    const container = new Container();
+    listingEl.parentElement.insertBefore(containerEl, listingEl);
+
+    showLoader(container, containerEl);
+
+    chrome.runtime.sendMessage({
+      type: 'requestInfo',
+      coords: coords
+    }, function(response) {
+      if (response.err) {
+        // TODO: don't fail silently
+        console.log(response);
+      } else {
+        createUI(response.data, container, containerEl);
+      }
+    });
+  }
 }
 
-function createUI(data) {
+function createUI(data, container, containerEl) {
   data = _processData(data);
-  const listingEl = document.getElementById('ListingMainDetails');
-  const containerEl = document.createElement('div');
-  const container = new Container();
+  container.clearAll();
   container.addCard(new CrimeCard(data.crime));
   container.addCard(new EmploymentCard(data.employment));
   container.addCard(new PeopleCard(data.people));
   container.render(containerEl);
+}
 
-  listingEl.parentElement.insertBefore(container.el, listingEl);
+function showLoader(container, containerEl) {
+  container.addCard(new Loader());
+  container.render(containerEl);
 }
 
 /**
