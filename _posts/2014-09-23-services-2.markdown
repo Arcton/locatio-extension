@@ -1,0 +1,8 @@
+---
+layout: default
+img: code.jpg
+category: Social
+title: Developed by Kiwis, just for you!
+description: |
+---
+  Locatio is developed by a team of 4 in Hamilton, for GovHackNZ 2016.

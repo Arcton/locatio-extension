@@ -1,0 +1,8 @@
+---
+layout: default
+img: scrn.png
+category: Social
+title: Try it out today
+description: |
+---
+  Locatio is available on the Google Chrome Extension Store today, for you to try out!
