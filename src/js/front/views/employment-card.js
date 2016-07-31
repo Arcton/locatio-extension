@@ -36,6 +36,12 @@ export default class EmploymentCard extends Card {
   }
 
   afterAttached() {
+    if (this.rendered) {
+      return;
+    } else {
+      this.rendered = true;
+    }
+
     let chart = c3.generate({
       bindto: this.contentEl.querySelector('.lio-gauge'),
       data: {

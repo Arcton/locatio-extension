@@ -6,6 +6,7 @@ import CrimeCard from './views/crime-card';
 import EmploymentCard from './views/employment-card';
 import PeopleCard from './views/people-card';
 import TransportCard from './views/transport-card';
+import PokemonCard from './views/pokemon-card';
 import Container from './views/container';
 import Loader from './views/loader';
 
@@ -15,7 +16,21 @@ function main() {
   if (coords.lat && coords.lng) {
     const listingEl = document.getElementById('ListingMainDetails');
     const containerEl = document.createElement('div');
-    const container = new Container();
+    const container = new Container(() => {
+      chrome.runtime.sendMessage({
+        type: 'requestPokemonInfo',
+        coords: coords
+      }, function(response) {
+        if (response.err) {
+          // TODO: don't fail silently
+          console.log(response);
+        } else {
+          addPokemonCard(response.count, container, containerEl);
+        }
+      });
+
+
+    });
     listingEl.parentElement.insertBefore(containerEl, listingEl);
 
     showLoader(container, containerEl);
@@ -95,6 +110,18 @@ function _processData(data) {
     ['Bicycle', tm['Bicycle']]
   ];
   return processedData;
+}
+
+// Pretend this doesn't exist. Last minute hack
+function addPokemonCard(data, container, containerEl) {
+  const card = new PokemonCard(data);
+  container.addCard(card);
+
+  const cell = document.createElement('div');
+  cell.className = `lio-grid-cell-${card.getSize()}`;
+  cell.appendChild(card.render().el);
+  const rows = containerEl.querySelectorAll('.lio-grid-row');
+  rows[rows.length - 1].appendChild(cell);
 }
 
 main();

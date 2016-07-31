@@ -3,8 +3,9 @@
 import $ from 'jquery';
 
 export default class Container {
-  constructor() {
+  constructor(expandCallback) {
     this.cards = [];
+    this.expandCallback = expandCallback;
   }
 
   render(container) {
@@ -53,6 +54,8 @@ export default class Container {
           $(r).show();
           $(showMore).hide(500);
         });
+
+        this.expandCallback();
 
         this.cards.forEach((card) => {
           if (card.afterAttached != null) {
