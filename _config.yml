@@ -4,14 +4,11 @@
 
 url: www.arcton.nz
 title: Locatio
-email: your-email@domain.com
+email: arctondev@gmail.com
 author: Team Arcton
-description: > # "Write an awesome description for your new site here.
-  You can edit this line in _config.yml. It will appear in your document
-  head meta (for Google search results) and in your feed.xml site
-  description.
-copyright: 'Copyright &copy; 2016 Arcton. All Rights Reserved.'
-credits: 'Credits: Landing Page is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com/">Start Bootstrap</a>.'
+description: Locatio enhances online property listings with local crime statistics, demographics and more, letting you choose a home with peace of mind.
+copyright: 'Copyright &copy; 2016 Arcton. Locatio is not affiliated with, authorized by or endorsed by Trade Me.'
+credits: 'Theme based on Landing Page by <a href="http://startbootstrap.com/">Start Bootstrap</a>.'
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -26,7 +23,10 @@ permalink: pretty
 # ----------------------- #
 
 social:
-  - title: download
+  - title: Install
+    icon: chrome
+    primary: true
     url: https://chrome.google.com/webstore/detail/locatio/egbmcaagcpgnojkdbgigkdkckabmcgpp
-  - title: github
+  - title: Github
+    icon: github
     url: https://github.com/arcton/locatio-extension

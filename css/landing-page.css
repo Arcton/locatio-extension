@@ -18,7 +18,7 @@ h4,
 h5,
 h6 {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .lead {
@@ -27,34 +27,52 @@ h6 {
 }
 
 .intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
     background: url(../img/intro-bg.jpg) no-repeat center center;
     background-size: cover;
+    overflow: hidden;
 }
 
 .intro-message {
+    padding: 80px 0;
     position: relative;
-    padding-top: 0%;
-    padding-bottom: 0%;
 }
 
 .intro-message > h1 {
     margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-size: 5em;
+}
+
+.logo {
+    width: 300px;
+    max-width: 80%;
 }
 
 .intro-divider {
     width: 400px;
     border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-bottom: none;
 }
 
-.intro-message > h3 {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+.intro-social-buttons .btn {
+    border: none;
+    padding: 10px 50px;
+}
+
+.intro-social-buttons .btn-primary {
+    background: #f7de00;
+    color: #3e2e03;
+}
+
+.intro-social-buttons .btn-primary:hover {
+    background: #f9eb75;
+}
+
+.intro-preview {
+    max-width: 95%;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 @media(max-width:767px) {
@@ -81,6 +99,11 @@ h6 {
     }
 }
 
+.about {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
 .network-name {
     text-transform: uppercase;
     font-size: 14px;
@@ -101,6 +124,7 @@ h6 {
 
 .section-heading {
     margin-bottom: 30px;
+    font-weight: 700;
 }
 
 .section-heading-spacer {

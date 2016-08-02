@@ -5,4 +5,6 @@ category: Social
 title: Try it out today
 description: |
 ---
-  Locatio is available on the Google Chrome Extension Store today, for you to try out!
+  Locatio is available on the Google Chrome Web Store, free for you to use!
+  
+  [![Download for Google Chrome](img/chrome-badge.png)](https://chrome.google.com/webstore/detail/locatio/egbmcaagcpgnojkdbgigkdkckabmcgpp)

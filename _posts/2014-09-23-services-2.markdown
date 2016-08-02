@@ -5,4 +5,4 @@ category: Social
 title: Developed by Kiwis, just for you!
 description: |
 ---
-  Locatio is developed by a team of 4 in Hamilton, for GovHackNZ 2016.
+  Locatio is developed by a team of four in Hamilton, for GovHackNZ 2016.
