@@ -2,7 +2,6 @@
 
 import Location from './location';
 import Dataset from './dataset';
-import Pokeradar from './pokeradar';
 
 function main() {
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -25,21 +24,6 @@ function main() {
                 data: dataset
               });
             }
-          });
-        }
-      });
-      break;
-    case 'requestPokemonInfo':
-      Pokeradar(
-        request.coords.lat,
-        request.coords.lng
-      )(function (response) {
-        if (response == null || response.data == null) {
-          sendResponse({err: true});
-        } else {
-          sendResponse({
-            type: 'Pokemon',
-            count: response.data.length
           });
         }
       });

@@ -55,7 +55,9 @@ export default class Container {
           $(showMore).hide(500);
         });
 
-        this.expandCallback();
+        if (this.expandCallback) {
+          this.expandCallback();
+        }
 
         this.cards.forEach((card) => {
           if (card.afterAttached != null) {
