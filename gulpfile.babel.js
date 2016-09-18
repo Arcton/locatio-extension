@@ -24,10 +24,18 @@ import postcssColorFunction from 'postcss-color-function';
 import postcssMixins from 'postcss-mixins';
 import autoprefixer from 'autoprefixer';
 import postcsssClassPrefix from 'postcss-class-prefix';
+import postcssBase64 from 'postcss-inline-base64';
+import mergeJson from 'gulp-merge-json';
+import yargs from 'yargs';
+
+const argv = yargs.argv;
+const target = typeof argv.target === 'string' ? argv.target : 'chrome';
+
+gutil.log(`Building for target: ${target}`);
 
 const opts = {
   dest: './dist'
-}
+};
 
 gulp.task('browserify', function () {
   var files = ['./src/js/front/app.js', './src/js/back/background.js'];
@@ -96,6 +104,7 @@ gulp.task('css', () => {
     postcssSimpleVars,
     postcssCalc,
     postcssColorFunction,
+    postcssBase64({ extensions: ['.woff2'] }),
     postcsssClassPrefix('lio-', { ignore: [/c3-.*/]}),
     autoprefixer({ browsers: ['last 5 Chrome versions'] })
   ];
@@ -106,18 +115,15 @@ gulp.task('css', () => {
 });
 
 
-gulp.task('static', function () {
-  return gulp.src('./src/static/**.*')
-    .pipe(gulp.dest(opts.dest));
-});
-
-gulp.task('fonts', function () {
-  let base = 'node_modules/source-sans-pro/WOFF2/TTF/SourceSansPro';
-  return gulp.src([
-    base + '-Light.ttf.woff2',
-    base + '-Regular.ttf.woff2',
-    base + '-Semibold.ttf.woff2'])
-    .pipe(gulp.dest(opts.dest + '/fonts/'));
+gulp.task('manifest', function () {
+  if (target === 'firefox') {
+    return gulp.src(['./src/static/mainfest.json', './src/static/mainfest-ff.json'])
+      .pipe(mergeJson('manifest.json'))
+      .pipe(gulp.dest(opts.dest));
+  } else {
+    return gulp.src(['src/static/manifest.json'])
+      .pipe(gulp.dest(opts.dest));
+  }
 });
 
 gulp.task('clean', function() {
@@ -125,8 +131,8 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', ['build', 'watchify'], function () {
-  gulp.watch('./src/static/**.*', ['static']);
+  gulp.watch('./src/static/**.*', ['manifest']);
   gulp.watch('src/css/**/*', ['css']);
 });
 
-gulp.task('build', ['static', 'fonts', 'css', 'browserify']);
+gulp.task('build', ['manifest', 'css', 'browserify']);

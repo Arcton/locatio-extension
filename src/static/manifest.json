@@ -17,10 +17,6 @@
     "persistent": false
   },
 
-  "web_accessible_resources": [
-    "fonts/*.*"
-  ],
-
   "content_scripts": [
     {
       "matches": [
