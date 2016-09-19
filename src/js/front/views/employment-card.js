@@ -1,7 +1,6 @@
 import Card from './card';
-import Quantizer from '../quantizer';
 import c3 from 'c3';
-import * as d3 from 'd3';
+import * as d3 from 'd3-collection';
 
 export default class EmploymentCard extends Card {
 
@@ -79,7 +78,7 @@ export default class EmploymentCard extends Card {
 
   _sortIndustries() {
     const sorted = d3.entries(this.data.industries).sort((a, b) => {
-      return d3.descending(a.value, b.value);
+      return b.value - a.value;
     });
 
     return sorted;
