@@ -5,6 +5,13 @@
   "description": "Enhance your property search",
   "version": "1.1",
 
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png",
+    "128": "icons/icon128.png"
+  },
+
   "permissions": [
     "activeTab",
     "*://*.trademe.co.nz/*",

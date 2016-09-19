@@ -1,5 +1,7 @@
 'use strict';
 
+import manifest from './src/manifests/manifest.json';
+
 import gulp from 'gulp';
 import browserify from 'browserify';
 import babel from 'babelify';
@@ -27,6 +29,8 @@ import postcsssClassPrefix from 'postcss-class-prefix';
 import postcssBase64 from 'postcss-inline-base64';
 import mergeJson from 'gulp-merge-json';
 import yargs from 'yargs';
+import svg2png from 'gulp-svg2png';
+import rename from 'gulp-rename';
 
 const argv = yargs.argv;
 const target = typeof argv.target === 'string' ? argv.target : 'chrome';
@@ -114,15 +118,25 @@ gulp.task('css', () => {
     .pipe(gulp.dest(opts.dest));
 });
 
-
 gulp.task('manifest', function () {
   if (target === 'firefox') {
-    return gulp.src(['./src/static/mainfest.json', './src/static/mainfest-ff.json'])
+    return gulp.src(['./src/manifests/manifest.json', './src/manifests/manifest-ff.json'])
       .pipe(mergeJson('manifest.json'))
       .pipe(gulp.dest(opts.dest));
   } else {
-    return gulp.src(['src/static/manifest.json'])
+    return gulp.src(['src/manifests/manifest.json'])
       .pipe(gulp.dest(opts.dest));
+  }
+});
+
+gulp.task('icon', function () {
+  const src = gulp.src(['./src/icon/icon.svg']);
+
+  for (let key in manifest.icons) {
+    const size = Number.parseInt(key);
+    src.pipe(svg2png({ width: size, height: size }))
+      .pipe(rename(`icon${size}.png`))
+      .pipe(gulp.dest(opts.dest + '/icons'));
   }
 });
 
@@ -135,4 +149,4 @@ gulp.task('watch', ['build', 'watchify'], function () {
   gulp.watch('src/css/**/*', ['css']);
 });
 
-gulp.task('build', ['manifest', 'css', 'browserify']);
+gulp.task('build', ['manifest', 'css', 'icon', 'browserify']);
