@@ -42,7 +42,7 @@ export function getPropertyCoords(hostname) {
  * Extracts the element we should place the Locatio DIV above from the page depending on its hostname
  * @return {Object} Element we should place the Locatio DIV above
  */
-export function getBrotherElement(hostname) {
+export function getSiblingElement(hostname) {
   switch(hostname) {
     case "www.trademe.co.nz": {
       return document.getElementById('ListingMainDetails'); 

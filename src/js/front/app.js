@@ -11,8 +11,8 @@ import Loader from './views/loader';
 
 function main() {
   let coords = dataExtractor.getPropertyCoords(window.location.hostname);
-  let listingEl = dataExtractor.getBrotherElement(window.location.hostname);
-  
+  let listingEl = dataExtractor.getSiblingElement(window.location.hostname);
+
   if (coords.lat && coords.lng) {
     const container = new Container();
     const containerEl = document.createElement('div');
