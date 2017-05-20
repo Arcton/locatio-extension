@@ -16,8 +16,8 @@
     "activeTab",
     "*://*.trademe.co.nz/*",
     "*://trademe.co.nz/*",
-	"*://*.lodge.co.nz/*",
-	"*://lodge.co.nz/*",
+    "*://*.lodge.co.nz/*",
+    "*://lodge.co.nz/*",
     "*://koordinates.com/services/query/*"
   ],
 
@@ -33,8 +33,8 @@
           "*://*.trademe.co.nz/Browse/Listing*",
           "*://trademe.co.nz/property/*-property-*/auction-*",
           "*://trademe.co.nz/Browse/Listing*",
-		  "*://*.lodge.co.nz/Browse-Properties/*",
-		  "*://lodge.co.nz/Browse-Properties/*"
+          "*://*.lodge.co.nz/Browse-Properties/*",
+          "*://lodge.co.nz/Browse-Properties/*"
         ],
       "js": ["js/app.js"],
       "css": ["style.css"]
