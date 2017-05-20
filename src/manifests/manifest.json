@@ -18,6 +18,10 @@
     "*://trademe.co.nz/*",
     "*://*.lodge.co.nz/*",
     "*://lodge.co.nz/*",
+    "*://*.harcourts.co.nz/*",
+    "*://harcourts.co.nz/*",
+    "*://*.naiharcourts.co.nz/*",
+    "*://naiharcourts.co.nz/*",
     "*://koordinates.com/services/query/*"
   ],
 
@@ -30,11 +34,15 @@
     {
       "matches": [
           "*://*.trademe.co.nz/property/*-property-*/auction-*",
-          "*://*.trademe.co.nz/Browse/Listing*",
           "*://trademe.co.nz/property/*-property-*/auction-*",
+          "*://*.trademe.co.nz/Browse/Listing*",
           "*://trademe.co.nz/Browse/Listing*",
           "*://*.lodge.co.nz/Browse-Properties/*",
-          "*://lodge.co.nz/Browse-Properties/*"
+          "*://lodge.co.nz/Browse-Properties/*",
+          "*://*.harcourts.co.nz/Property/*/*/*",
+          "*://.harcourts.co.nz/Property/*/*/*",
+          "*://*.naiharcourts.co.nz/Property/*/*/*",
+          "*://.naiharcourts.co.nz/Property/*/*/*"
         ],
       "js": ["js/app.js"],
       "css": ["style.css"]

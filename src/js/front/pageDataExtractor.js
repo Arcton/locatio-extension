@@ -35,10 +35,18 @@ export function getPropertyCoords(hostname) {
       }
       break;
     case "lodge.co.nz":
-      selection = $(".map .small")[0].src;
-      selection = selection.split("|size:mid|")[1].split("&")[0];
+      selection = $('.map .small')[0].src;
+      selection = selection.split('|size:mid|')[1].split('&')[0];
       coords.lat = selection.split(",")[0];
       coords.lng = selection.split(",")[1];
+      return coords;
+    case "harcourts.co.nz":
+    case "naiharcourts.co.nz":
+      selection  = $('#mediaOptions .view_map a')[0].outerHTML;
+      console.log(selection);
+      coords.lat = selection.split('lat="')[1].split('" lng="')[0];
+      coords.lng = selection.split('lng="')[1].split('" zoom="')[0];
+      console.log(coords.lat + ", " + coords.lng);
       return coords;
   }
   return undefined;
@@ -55,6 +63,9 @@ export function getSiblingElement(hostname) {
       return document.getElementById('ListingMainDetails');
     case "lodge.co.nz":
       return document.getElementById('tabs');
+     case "harcourts.co.nz":
+     case "naiharcourts.co.nz":
+      return document.getElementById('detailMedia');
   }
   return undefined;
 }
