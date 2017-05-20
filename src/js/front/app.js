@@ -10,14 +10,13 @@ import Container from './views/container';
 import Loader from './views/loader';
 
 function main() {
-  let coords = dataExtractor.getPropertyCoords();
-
+  let coords = dataExtractor.getPropertyCoords(window.location.hostname);
+  let listingEl = dataExtractor.getBrotherElement(window.location.hostname);
+  
   if (coords.lat && coords.lng) {
-    const listingEl = document.getElementById('ListingMainDetails');
-    const containerEl = document.createElement('div');
     const container = new Container();
+    const containerEl = document.createElement('div');
     listingEl.parentElement.insertBefore(containerEl, listingEl);
-
     showLoader(container, containerEl);
 
     chrome.runtime.sendMessage({
