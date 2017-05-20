@@ -73,14 +73,14 @@ function _processData(data) {
   // People
   processedData.people.medianIncome = data['census-individual-part-2']['2013 Census, total personal income (grouped),(21)(22) for the census usually resident population count aged 15 years and over(1)']['Median personal income ($)(23)(27)'];
   processedData.people.medianAge = data['census-individual-part-1']['2013 Census, age in five-year groups, for the census usually resident population count(1)']['Median Age(3)'];
-  const studyStats = data['census-individual-part-2']['2013 Census, study participation,(18) for the census usually resident population count aged 15 years and over(1)']
+  const studyStats = data['census-individual-part-2']['2013 Census, study participation,(18) for the census usually resident population count aged 15 years and over(1)'];
   processedData.people.studying = {
     fullTime: studyStats['Full-time Study(19)'],
     partTime: studyStats['Part-time Study(20)'],
     fullAndPart: studyStats['Full-time and Part-time Study'],
     notStudying: studyStats['Not Studying'],
     notStated: studyStats['Not stated']
-  }
+  };
 
   let tm = data['census-individual-part-3b']['2013 Census, main means of travel to work, for the employed census usually resident population count aged 15 years and over(1)'];
   // Transport
