@@ -66,7 +66,16 @@ export default class EmploymentCard extends Card {
         }
       },
       size: {
-        height: 80
+        height: 93
+      },
+	  legend: {
+        show: false
+      },
+	  padding: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
       }
     });
 

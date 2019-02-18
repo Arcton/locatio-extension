@@ -1,6 +1,11 @@
 @import '../variables';
 
 .employment {
+  svg {
+	height: 82px !important;
+    margin-top: -7px;
+  }
+	
   .c3-gauge-value {
     font-size: 2em !important;
     font-weight: 600;
