@@ -35,18 +35,25 @@ export function getPropertyCoords(hostname) {
       }
       break;
     case "lodge.co.nz":
-      selection = $('.map .small')[0].src;
-      selection = selection.split('|size:mid|')[1].split('&')[0];
-      coords.lat = selection.split(",")[0];
-      coords.lng = selection.split(",")[1];
-      return coords;
+      selection  = $('script[type="text/javascript"]');
+      for (let el of selection) {
+        const re = /"lat":"(.*)","long":"(.*)","propertyType/gm;
+
+        el.innerHTML.replace(re, ($0, $1, $2) => {
+          coords.lat = $1;
+          coords.lng = $2;
+        });
+
+        if (coords.lat && coords.lng) {
+          return coords;
+        }
+      }
+	  break;
     case "harcourts.co.nz":
     case "naiharcourts.co.nz":
-      selection  = $('#mediaOptions .view_map a')[0].outerHTML;
-      console.log(selection);
-      coords.lat = selection.split('lat="')[1].split('" lng="')[0];
-      coords.lng = selection.split('lng="')[1].split('" zoom="')[0];
-      console.log(coords.lat + ", " + coords.lng);
+      selection = $('.property-location.listing-details-full-width-row iframe')[0].src;
+      coords.lat = selection.split('q=')[1].split(',')[0];
+      coords.lng = selection.split('q=')[1].split(',')[1];
       return coords;
   }
   return undefined;
