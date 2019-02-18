@@ -9,7 +9,7 @@
     "c3": "^0.4.11",
     "d3": "^4.2.0",
     "del": "^2.2.1",
-    "event-stream": "^3.3.4",
+    "event-stream": "3.3.4",
     "gulp": "^3.9.1",
     "gulp-flatten": "^0.3.0",
     "gulp-merge-json": "^0.6.0",
