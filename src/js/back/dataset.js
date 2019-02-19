@@ -5,7 +5,7 @@ import $ from 'jquery';
 export default function (areaUnit) {
   return function(callback) {
     $.ajax({
-      url: `https://rawgit.com/Arcton/locatio-data/master/data/${areaUnit}.json`,
+      url: `https://arcton.nz/locatio-data/data/${areaUnit}.json`,
       type: 'GET',
       dataType: 'json'
     })
