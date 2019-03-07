@@ -38,7 +38,6 @@ export function getPropertyCoords(hostname) {
       selection  = $('script[type="text/javascript"]');
       for (let el of selection) {
         const re = /"lat":"(.*)","long":"(.*)","propertyType/gm;
-
         el.innerHTML.replace(re, ($0, $1, $2) => {
           coords.lat = $1;
           coords.lng = $2;
@@ -49,6 +48,14 @@ export function getPropertyCoords(hostname) {
         }
       }
 	  break;
+
+    case "nz.raywhite.com":
+
+      coords.lat = $('.property-micro.property-micro-geodata span[itemprop="latitude"]').text();
+      coords.lng = $('.property-micro.property-micro-geodata span[itemprop="longitude"]').text();
+      return coords;
+    break;
+
     case "harcourts.co.nz":
     case "naiharcourts.co.nz":
       selection = $('.property-location.listing-details-full-width-row iframe')[0].src;
@@ -70,6 +77,8 @@ export function getSiblingElement(hostname) {
       return document.getElementById('ListingMainDetails');
     case "lodge.co.nz":
       return document.getElementById('tabs');
+    case "nz.raywhite.com":
+      return document.getElementById('content');
      case "harcourts.co.nz":
      case "naiharcourts.co.nz":
       return document.getElementById('detailMedia');
