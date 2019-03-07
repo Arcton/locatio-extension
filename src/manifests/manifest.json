@@ -22,7 +22,6 @@
     "*://harcourts.co.nz/*",
     "*://*.naiharcourts.co.nz/*",
     "*://naiharcourts.co.nz/*",
-    "*://nz.raywhite.com/*",
     "*://koordinates.com/services/query/*"
   ],
 
@@ -43,8 +42,7 @@
           "*://*.harcourts.co.nz/Property/*/*/*",
           "*://.harcourts.co.nz/Property/*/*/*",
           "*://*.naiharcourts.co.nz/Property/*/*/*",
-          "*://.naiharcourts.co.nz/Property/*/*/*",
-          "*://*.raywhite.com/*/*/*"
+          "*://.naiharcourts.co.nz/Property/*/*/*"
         ],
       "js": ["js/app.js"],
       "css": ["style.css"]
