@@ -78,7 +78,7 @@ export function getSiblingElement(hostname) {
     case "lodge.co.nz":
       return document.getElementById('tabs');
     case "nz.raywhite.com":
-      return document.getElementById('content');
+      return document.getElementById('listing-photo-gallery');
      case "harcourts.co.nz":
      case "naiharcourts.co.nz":
       return document.getElementById('detailMedia');
