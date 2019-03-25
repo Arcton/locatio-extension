@@ -49,6 +49,12 @@ export function getPropertyCoords(hostname) {
       }
 	  break;
 
+    case "ljhooker.co.nz":
+      coords.lat = $('#mapTab').attr('data-latitude');
+      coords.lng = $('#mapTab').attr('data-longitude');
+      return coords;
+    break;
+
     case "nz.raywhite.com":
 
       coords.lat = $('.property-micro.property-micro-geodata span[itemprop="latitude"]').text();
@@ -79,6 +85,8 @@ export function getSiblingElement(hostname) {
       return document.getElementById('tabs');
     case "nz.raywhite.com":
       return document.getElementById('listing-photo-gallery');
+    case "ljhooker.co.nz":
+      return document.getElementById('property_photos_videos');
      case "harcourts.co.nz":
      case "naiharcourts.co.nz":
       return document.getElementById('detailMedia');

@@ -23,6 +23,7 @@
     "*://*.naiharcourts.co.nz/*",
     "*://naiharcourts.co.nz/*",
     "*://nz.raywhite.com/*",
+    "*://ljhooker.co.nz/*",
     "*://koordinates.com/services/query/*"
   ],
 
@@ -44,7 +45,8 @@
           "*://.harcourts.co.nz/Property/*/*/*",
           "*://*.naiharcourts.co.nz/Property/*/*/*",
           "*://.naiharcourts.co.nz/Property/*/*/*",
-          "*://*.raywhite.com/*/*/*"
+          "*://*.raywhite.com/*/*/*",
+          "*://*.ljhooker.co.nz/*/*"
         ],
       "js": ["js/app.js"],
       "css": ["style.css"]
